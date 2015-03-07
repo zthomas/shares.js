@@ -12,17 +12,17 @@ First install it...
 Then get require it...
 
     var shares = require('shares');
-    
+
 Then get some counts!
 
     shares.get.reddit('https://github.com/abeisgreat/Shares.js').then(function (count) {
         // Count is a number
     });
-    
+
 To get all the counts at once, just use...
 
     var shares = require('shares');
-    
+
     shares.get('https://github.com/abeisgreat/Shares.js').then(function (counts) {
         /*
             counts is like...
@@ -34,11 +34,12 @@ To get all the counts at once, just use...
                 reddit: ...,
                 linkedin: ...,
                 pinterest: ...,
-                buffer: ...
+                buffer: ...,
+                gplus: ...
             }
         *
     });
-    
+
 Services
 --------
 
@@ -49,3 +50,4 @@ Services
 * LinkedIn
 * Pinterest
 * Buffer
+* Google Plus
