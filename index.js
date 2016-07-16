@@ -162,15 +162,16 @@ module.exports = (function () {
         };
     };
 
-    root.get = function (url) {
+    root.get = function (url, _services) {
         var promise = new Promise(function (resolve, reject) {
             var results = {};
+            var selectedServices = _services || Object.keys(services)
 
-            var done = new After(Object.keys(services).length, function () {
+            var done = new After(selectedServices.length, function () {
                 resolve(results);
             }).step;
 
-            Object.keys(services).forEach(function (service) {
+            selectedServices.forEach(function (service) {
                 root.get[service](url).then(function (count) {
                     results[service] = count;
                     done(results);
